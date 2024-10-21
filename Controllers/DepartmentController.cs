@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class DepartmentController : Controller
     {
         private readonly DepartmentRepository dp;

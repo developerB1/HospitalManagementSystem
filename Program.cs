@@ -12,6 +12,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<ApplicationDbContext>(db => db.UseSqlServer(builder.Configuration.GetConnectionString("DbConnection")));
 builder.Services.AddScoped<PatientRepository>();
+builder.Services.AddScoped<DoctorRepository>();
+builder.Services.AddScoped<NurseRepository>();
+builder.Services.AddScoped<PathologistRepository>();
+builder.Services.AddScoped<ReceptionistRepository>();
+builder.Services.AddScoped<DepartmentRepository>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
