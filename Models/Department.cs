@@ -7,6 +7,6 @@ namespace HospitalManagementSystem.Models
         [Key]
         public int Id { get; set; }
         public required string DepartmentName { get; set; }
-        public int DepartmentNumberr { get; set; }
+        public int DepartmentNumber { get; set; }
     }
 }

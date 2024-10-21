@@ -14,5 +14,6 @@ namespace HospitalManagementSystem.Data
         public DbSet<Nurse> Nurses { get; set; }
         public DbSet<Pathologist> Pathologists { get; set; }
         public DbSet<Department> Departments { get; set; }
+        public DbSet<Receptionist> Receptionists { get; set; }
     }
 }

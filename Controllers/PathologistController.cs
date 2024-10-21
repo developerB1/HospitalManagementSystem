@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.Controllers
@@ -20,13 +21,13 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> AddPathologist(Pathologist aph)
         {
-            await ph.SavePatient(aph);
+            await ph.SavePathologist(aph);
             return Ok(aph);
         }
         [HttpPut("{id}")]
         public async Task<ActionResult> updatePathologist(int id, [FromBody] Pathologist vm)
         {
-            await ph.updatePatient(id, vm);
+            await ph.updatePathologist(id, vm);
             return Ok(vm);
         }
         [HttpDelete("{id}")]

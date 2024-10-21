@@ -1,4 +1,5 @@
 ﻿using HospitalManagementSystem.Models;
+using HospitalManagementSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.Controllers
@@ -20,7 +21,7 @@ namespace HospitalManagementSystem.Controllers
         [HttpPost]
         public async Task<ActionResult> AddReceptionist(Receptionist ar)
         {
-            await ar.SaveReceptionist(ar);
+            await rt.SaveReceptionist(ar);
             return Ok(ar);
         }
         [HttpPut("{id}")]
