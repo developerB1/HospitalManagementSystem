@@ -1,12 +1,39 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HospitalManagementSystem.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace HospitalManagementSystem.Controllers
 {
     public class NurseController : Controller
     {
-        public IActionResult Index()
+        private readonly NurseRepository ns;
+        public NurseController(NurseRepository nurseRepository)
         {
-            return View();
+            this.ns = nurseRepository;
+
+        }
+        [HttpGet]
+        public async Task<ActionResult> NurseList()
+        {
+            var allNurses = await ns.GetAllNurses();
+            return Ok(allNurses);
+        }
+        [HttpPost]
+        public async Task<ActionResult> AddNurse(Patient an)
+        {
+            await ns.SaveNurse(an);
+            return Ok(an);
+        }
+        [HttpPut("{id}")]
+        public async Task<ActionResult> updateNurse(int id, [FromBody] Nurse vm)
+        {
+            await ns.updatePatient(id, vm);
+            return Ok(vm);
+        }
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> deleteNurse(int id)
+        {
+            await ns.DeleteNurse(id);
+            return Ok();
         }
     }
 }
